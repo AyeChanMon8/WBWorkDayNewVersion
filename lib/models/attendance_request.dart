@@ -7,17 +7,17 @@ class AttendanceRequest {
   final double latitude;
   final double longitude;
   AttendanceRequest({
-    this.fingerprint_id,
-    this.employee_id,
-    this.check_in,
-    this.latitude,
-    this.longitude,
+    this.fingerprint_id = '',
+    this.employee_id = 0,
+    this.check_in = '',
+    this.latitude = 0.0,
+    this.longitude = 0.0,
   });
 
   AttendanceRequest copyWith({
-    String fingerprint_id,
-    int employee_id,
-    String check_in,
+    String? fingerprint_id,
+    int? employee_id,
+    String? check_in,
   }) {
     return AttendanceRequest(
       fingerprint_id: fingerprint_id ?? this.fingerprint_id,
@@ -37,7 +37,7 @@ class AttendanceRequest {
   }
 
   factory AttendanceRequest.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return AttendanceRequest(
       fingerprint_id: map['fingerprint_id'],

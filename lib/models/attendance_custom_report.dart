@@ -6,13 +6,13 @@ class AttendanceCustomReport {
   final String date;
   List<Attendance> attendance_list;
   AttendanceCustomReport({
-    this.date,
-    this.attendance_list,
+    this.date = '',
+    required this.attendance_list,
   });
 
   AttendanceCustomReport copyWith({
-    String date,
-    List<Attendance> attendance_list,
+    String? date,
+    required List<Attendance> attendance_list,
   }) {
     return AttendanceCustomReport(
       date: date ?? this.date,
@@ -28,7 +28,7 @@ class AttendanceCustomReport {
   }
 
   factory AttendanceCustomReport.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return AttendanceCustomReport(
       date: map['date'] ?? '',
