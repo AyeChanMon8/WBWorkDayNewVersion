@@ -17,23 +17,23 @@ class OutofPocketResponse {
   List<PocketLine> pocket_line;
   String number;
   OutofPocketResponse({
-    this.id,
-    this.date,
-    this.state,
-    this.employee_id,
-    this.company_id,
-    this.pocket_line,
-    this.number,
+    this.id = 0,
+    this.date = '',
+    this.state = '',
+    required this.employee_id,
+    required this.company_id,
+    required this.pocket_line,
+    this.number = '',
   });
 
   OutofPocketResponse copyWith({
-    int id,
-    String date,
-    String state,
-    EmployeeModel employee_id,
-    Company company_id,
-    List<PocketLine> pocket_line,
-    String number,
+    int? id,
+    String? date,
+    String? state,
+    required EmployeeModel employee_id,
+    required Company company_id,
+    required List<PocketLine> pocket_line,
+    String? number,
   }) {
     return OutofPocketResponse(
       id: id ?? this.id,
@@ -59,7 +59,7 @@ class OutofPocketResponse {
   }
 
   factory OutofPocketResponse.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return OutofPocketResponse(
       id: map['id'],

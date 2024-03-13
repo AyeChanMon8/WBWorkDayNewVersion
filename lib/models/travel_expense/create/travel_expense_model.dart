@@ -16,26 +16,26 @@ class TravelExpenseModel {
   String number;
 
   TravelExpenseModel({
-    this.id,
-    this.date,
-    this.mobile_user_id,
-    this.employee_id,
-    this.company_id,
-    this.travel_id,
-    this.advanced_money,
-    this.travel_line,
-    this.number,
+    this.id = 0,
+    this.date = '',
+    this.mobile_user_id = 0,
+    this.employee_id = 0,
+    this.company_id = 0,
+    this.travel_id = 0,
+    this.advanced_money = 0.0,
+    required this.travel_line,
+    this.number = '',
   });
 
   TravelExpenseModel copyWith({
-    int id,
-    String date,
-    int mobile_user_id,
-    int employee_id,
-    int company_id,
-    int travel_id,
-    double advanced_money,
-    List<TravelLineModel> travel_line,
+    int? id,
+    String? date,
+    int? mobile_user_id,
+    int? employee_id,
+    int? company_id,
+    int? travel_id,
+    double? advanced_money,
+    List<TravelLineModel>? travel_line,
   }) {
     return TravelExpenseModel(
         id: id ?? this.id,
@@ -63,7 +63,7 @@ class TravelExpenseModel {
   }
 
   factory TravelExpenseModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return TravelExpenseModel(
       id: map['id'],

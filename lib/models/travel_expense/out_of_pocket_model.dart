@@ -17,21 +17,21 @@ class OutofPocketModel {
   List<PockectModel> pocket_line;
   String number;
   OutofPocketModel(
-      {this.id,
-      this.date,
-      this.mobile_user_id,
-      this.employee_id,
-      this.company_id,
-      this.pocket_line,
-      this.number});
+      {this.id = 0,
+      this.date = '',
+      this.mobile_user_id = 0,
+      this.employee_id = 0,
+      this.company_id = 0,
+      required this.pocket_line,
+      this.number = ''});
 
   OutofPocketModel copyWith({
-    int id,
-    String date,
-    int mobile_user_id,
-    int employee_id,
-    int company_id,
-    List<PockectModel> pocket_line,
+    int? id,
+    String? date,
+    int? mobile_user_id,
+    int? employee_id,
+    int? company_id,
+    required List<PockectModel> pocket_line,
   }) {
     return OutofPocketModel(
       id: id ?? this.id,
@@ -56,7 +56,7 @@ class OutofPocketModel {
   }
 
   factory OutofPocketModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return OutofPocketModel(
       id: map['id'],

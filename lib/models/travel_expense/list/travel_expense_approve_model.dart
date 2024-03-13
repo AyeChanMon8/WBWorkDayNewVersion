@@ -4,13 +4,13 @@ class TravelExpenseApproveModel {
   int id;
   String name;
   TravelExpenseApproveModel({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   TravelExpenseApproveModel copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return TravelExpenseApproveModel(
       id: id ?? this.id,
@@ -26,7 +26,7 @@ class TravelExpenseApproveModel {
   }
 
   factory TravelExpenseApproveModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return TravelExpenseApproveModel(
       id: map['id'] ?? 0,

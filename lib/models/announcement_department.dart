@@ -4,13 +4,13 @@ class AnnouncementDepartment {
   int id;
   String name;
   AnnouncementDepartment({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   AnnouncementDepartment copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return AnnouncementDepartment(
       id: id ?? this.id,
@@ -26,7 +26,7 @@ class AnnouncementDepartment {
   }
 
   factory AnnouncementDepartment.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return AnnouncementDepartment(
       id: map['id'],

@@ -4,13 +4,13 @@ class CategoryModel {
   int id;
   String name;
   CategoryModel({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   CategoryModel copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return CategoryModel(
       id: id ?? this.id,
@@ -26,7 +26,7 @@ class CategoryModel {
   }
 
   factory CategoryModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return CategoryModel(
       id: map['id'],

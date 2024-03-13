@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'fleet_model.dart';
 
 /// id : 2
@@ -483,38 +485,91 @@ class Driver_id {
 /// id : 4
 /// name : "Opel/Corsa/4Q/5478"
 
+// class Vehicle_id {
+//   int _id;
+//   String _name;
+//   Incharge_id _inchargeId;
+
+//   int get id => _id;
+//   String get name => _name;
+//   dynamic get inchargeId => _inchargeId;
+
+//   Vehicle_id({int id, String name, dynamic inchargeId}) {
+//     _id = id;
+//     _name = name;
+//     _inchargeId = inchargeId;
+//   }
+
+//   Vehicle_id.fromJson(dynamic json) {
+//     _id = json["id"];
+//     _name = json["name"];
+//     _inchargeId = json["incharge_id"] != null
+//         ? Incharge_id.fromJson(json["incharge_id"])
+//         : null;
+//   }
+
+//   Map<String, dynamic> toJson() {
+//     var map = <String, dynamic>{};
+//     map["id"] = _id;
+//     map["name"] = _name;
+//     if (_inchargeId != null) {
+//       map["incharge_id"] = _inchargeId.toJson();
+//     }
+//     return map;
+//   }
+// }
+
 class Vehicle_id {
-  int _id;
-  String _name;
-  Incharge_id _inchargeId;
+  int id;
+  String name;
+  Incharge_id inchargeId;
 
-  int get id => _id;
-  String get name => _name;
-  dynamic get inchargeId => _inchargeId;
+  Vehicle_id({this.id = 0, this.name = '', required this.inchargeId});
 
-  Vehicle_id({int id, String name, dynamic inchargeId}) {
-    _id = id;
-    _name = name;
-    _inchargeId = inchargeId;
+  Vehicle_id copyWith(
+      {int? id, String? name, required Incharge_id inchargeId}) {
+    return Vehicle_id(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        inchargeId: inchargeId ?? this.inchargeId);
   }
 
-  Vehicle_id.fromJson(dynamic json) {
-    _id = json["id"];
-    _name = json["name"];
-    _inchargeId = json["incharge_id"] != null
-        ? Incharge_id.fromJson(json["incharge_id"])
-        : null;
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+      'inchargeId': inchargeId?.toMap(),
+    };
   }
 
-  Map<String, dynamic> toJson() {
-    var map = <String, dynamic>{};
-    map["id"] = _id;
-    map["name"] = _name;
-    if (_inchargeId != null) {
-      map["incharge_id"] = _inchargeId.toJson();
-    }
-    return map;
+  factory Vehicle_id.fromMap(Map<String, dynamic> map) {
+    return Vehicle_id(
+        id: map['id'],
+        name: map['name'],
+        inchargeId: Incharge_id.fromMap(map['incharge_id']) ?? '');
   }
+
+  String toJson() => json.encode(toMap());
+
+  factory Vehicle_id.fromJson(String source) =>
+      Vehicle_id.fromMap(json.decode(source));
+
+  @override
+  String toString() =>
+      'Vehicle_id(id: $id, name: $name, inchargeId: $inchargeId)';
+
+  @override
+  bool operator ==(Object o) {
+    if (identical(this, o)) return true;
+
+    return o is Vehicle_id &&
+        o.id == id &&
+        o.name == name &&
+        o.inchargeId == inchargeId;
+  }
+
+  @override
+  int get hashCode => id.hashCode ^ name.hashCode ^ inchargeId.hashCode;
 }
 
 class Consumption_ids {

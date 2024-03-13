@@ -24,51 +24,51 @@ class TravelLineModel {
   int vehicle_id;
   bool attachment_include;
   TravelLineModel(
-      {this.id,
-      this.date,
-      this.categ_id,
-      this.expense_category,
-      this.product_id,
-      this.description,
-      this.qty,
-      this.price_unit,
-      this.price_subtotal,
-      this.attached_file,
-      this.image1,
-      this.image2,
-      this.image3,
-      this.image4,
-      this.image5,
-      this.image6,
-      this.image7,
-      this.image8,
-      this.image9,
-      this.attached_filename,
-      this.vehicle_id,
-      this.attachment_include});
+      {this.id = 0,
+      this.date = '',
+      this.categ_id = 0,
+      this.expense_category = '',
+      this.product_id = 0,
+      this.description = '',
+      this.qty = 0.0,
+      this.price_unit = 0.0,
+      this.price_subtotal = 0.0,
+      this.attached_file = '',
+      this.image1 = '',
+      this.image2 = '',
+      this.image3 = '',
+      this.image4 = '',
+      this.image5 = '',
+      this.image6 = '',
+      this.image7 = '',
+      this.image8 = '',
+      this.image9 = '',
+      this.attached_filename = '',
+      this.vehicle_id = 0,
+      this.attachment_include = false});
 
   TravelLineModel copyWith({
-    int id,
-    String date,
-    int categ_id,
-    String expense_category,
-    int product_id,
-    String description,
-    double qty,
-    double price_unit,
-    double price_subtotal,
-    String attached_file,
-    String image1,
-    String image2,
-    String image3,
-    String image4,
-    String image5,
-    String image6,
-    String image7,
-    String image8,
-    String image9,
-    String attached_filename,
-    int vehicle_id,
+    int? id,
+    String? date,
+    int? categ_id,
+    String? expense_category,
+    int? product_id,
+    String? description,
+    double? qty,
+    double? price_unit,
+    double? price_subtotal,
+    String? attached_file,
+    String? image1,
+    String? image2,
+    String? image3,
+    String? image4,
+    String? image5,
+    String? image6,
+    String? image7,
+    String? image8,
+    String? image9,
+    String? attached_filename,
+    int? vehicle_id,
   }) {
     return TravelLineModel(
         id: id ?? this.id,
@@ -223,13 +223,13 @@ class TravelLineModel {
 }
 
 class Vehicle_id {
-  int _id;
-  String _name;
+  int _id = 0;
+  String _name = '';
 
   int get id => _id;
   String get name => _name;
 
-  Vehicle_id({int id, String name}) {
+  Vehicle_id({int id = 0, String name = ''}) {
     _id = id;
     _name = name;
   }

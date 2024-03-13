@@ -20,32 +20,32 @@ class PockectModel {
   bool attachment_include = false;
 
   PockectModel(
-      {this.date,
-      this.categ_id,
-      this.expense_category,
-      this.product_id,
-      this.description,
-      this.qty,
-      this.price_unit,
-      this.price_subtotal,
-      this.attached_file,
-      this.vehicle_id,
-      this.line_id,
-      this.id,
-      this.attachment_include});
+      {this.date = '',
+      this.categ_id = 0,
+      this.expense_category = '',
+      this.product_id = 0,
+      this.description = '',
+      this.qty = 0.0,
+      this.price_unit = 0.0,
+      this.price_subtotal = 0.0,
+      this.attached_file = '',
+      this.vehicle_id = 0,
+      this.line_id = 0,
+      this.id = 0,
+      this.attachment_include = false});
 
   PockectModel copyWith(
-      {String date,
-      int categ_id,
-      String expense_category,
-      int product_id,
-      String description,
-      double qty,
-      double price_unit,
-      double price_subtotal,
-      String attached_file,
-      int vehicle_id,
-      int line_id}) {
+      {String? date,
+      int? categ_id,
+      String? expense_category,
+      int? product_id,
+      String? description,
+      double? qty,
+      double? price_unit,
+      double? price_subtotal,
+      String? attached_file,
+      int? vehicle_id,
+      int? line_id}) {
     return PockectModel(
         date: date ?? this.date,
         categ_id: categ_id ?? this.categ_id,
@@ -79,7 +79,7 @@ class PockectModel {
   }
 
   factory PockectModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return PockectModel(
       date: map['date'],

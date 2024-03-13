@@ -4,13 +4,13 @@ class TravelModel {
   int id;
   String name;
   TravelModel({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   TravelModel copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return TravelModel(
       id: id ?? this.id,
@@ -26,7 +26,7 @@ class TravelModel {
   }
 
   factory TravelModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return TravelModel(
       id: map['id'],

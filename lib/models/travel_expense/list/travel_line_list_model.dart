@@ -30,49 +30,49 @@ class TravelLineListModel {
   String image8;
   String image9;
   TravelLineListModel(
-      {this.id,
-      this.date,
-      this.categ_id,
-      this.product_id,
-      this.description,
-      this.qty,
-      this.price_unit,
-      this.price_subtotal,
-      this.attachment_filename,
-      this.attached_file,
-      this.vehicle_id,
-      this.image1,
-      this.image2,
-      this.image3,
-      this.image4,
-      this.image5,
-      this.image6,
-      this.image7,
-      this.image8,
-      this.image9,
-      this.attachment_include});
+      {this.id = 0,
+      this.date = "",
+      required this.categ_id,
+      required this.product_id,
+      this.description = "",
+      this.qty = 0.0,
+      this.price_unit = 0.0,
+      this.price_subtotal = 0.0,
+      this.attachment_filename = '',
+      this.attached_file = '',
+      required this.vehicle_id,
+      this.image1 = '',
+      this.image2 = '',
+      this.image3 = '',
+      this.image4 = '',
+      this.image5 = '',
+      this.image6 = '',
+      this.image7 = '',
+      this.image8 = '',
+      this.image9 = '',
+      this.attachment_include = false});
 
   TravelLineListModel copyWith(
-      {int id,
-      String date,
-      CategoryModel categ_id,
-      ProductModel product_id,
-      String description,
-      double qty,
-      double price_unit,
-      double price_subtotal,
-      String attachment_filename,
-      String attached_file,
-      Vehicle_id vehicle_id,
-      String image1,
-      String image2,
-      String image3,
-      String image4,
-      String image5,
-      String image6,
-      String image7,
-      String image8,
-      String image9}) {
+      {int? id,
+      String? date,
+      required CategoryModel categ_id,
+      required ProductModel product_id,
+      String? description,
+      double? qty,
+      double? price_unit,
+      double? price_subtotal,
+      String? attachment_filename,
+      String? attached_file,
+      required Vehicle_id vehicle_id,
+      String? image1,
+      String? image2,
+      String? image3,
+      String? image4,
+      String? image5,
+      String? image6,
+      String? image7,
+      String? image8,
+      String? image9}) {
     return TravelLineListModel(
       id: id ?? this.id,
       date: date ?? this.date,
@@ -114,7 +114,7 @@ class TravelLineListModel {
   }
 
   factory TravelLineListModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return TravelLineListModel(
         id: map['id'],
@@ -127,9 +127,7 @@ class TravelLineListModel {
         price_subtotal: map['price_subtotal'],
         attachment_filename: map['attached_filename'],
         attached_file: map['attached_file'],
-        vehicle_id: map['vehicle_id'] != null
-            ? Vehicle_id.fromJson(map['vehicle_id'])
-            : null,
+        vehicle_id: Vehicle_id.fromMap(map['vehicle_id']),
         image1: map['image1'],
         image2: map['image2'],
         image3: map['image3'],

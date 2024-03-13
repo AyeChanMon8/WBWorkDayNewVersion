@@ -4,13 +4,13 @@ class TravelExpenseProduct {
   int id;
   String name;
   TravelExpenseProduct({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   TravelExpenseProduct copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return TravelExpenseProduct(
       id: id ?? this.id,
@@ -26,7 +26,7 @@ class TravelExpenseProduct {
   }
 
   factory TravelExpenseProduct.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return TravelExpenseProduct(
       id: map['id'],

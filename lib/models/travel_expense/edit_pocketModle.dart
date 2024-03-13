@@ -7,11 +7,11 @@ import 'package:winbrother_hr_app/models/travel_expense/pocket_model.dart';
 class EditPocketModel {
   List<PockectModel> pocket_line;
   EditPocketModel({
-    this.pocket_line,
+    required this.pocket_line,
   });
 
   EditPocketModel copyWith({
-    List<PockectModel> pocket_line,
+    required List<PockectModel> pocket_line,
   }) {
     return EditPocketModel(
       pocket_line: pocket_line ?? this.pocket_line,
@@ -25,7 +25,7 @@ class EditPocketModel {
   }
 
   factory EditPocketModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return EditPocketModel(
       pocket_line: List<PockectModel>.from(

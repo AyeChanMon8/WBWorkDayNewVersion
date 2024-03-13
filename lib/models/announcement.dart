@@ -22,39 +22,39 @@ class Announcement {
   String date_start;
   String date_end;
   Announcement({
-    this.id,
-    this.name,
-    this.announcement_reason,
-    this.state,
-    this.requested_date,
-    this.attachment_id,
-    this.company_id,
-    this.is_announcement,
-    this.announcement_type,
-    this.employee_ids,
-    this.department_ids,
-    this.position_ids,
-    this.announcement,
-    this.date_start,
-    this.date_end,
+    this.id = 0,
+    this.name = '',
+    this.announcement_reason = '',
+    this.state = '',
+    this.requested_date = '',
+    required this.attachment_id,
+    required this.company_id,
+    this.is_announcement = false,
+    this.announcement_type = '',
+    required this.employee_ids,
+    required this.department_ids,
+    required this.position_ids,
+    this.announcement = '',
+    this.date_start = '',
+    this.date_end = '',
   });
 
   Announcement copyWith({
-    int id,
-    String name,
-    String announcement_reason,
-    String state,
-    String requested_date,
-    List<Attachment> attachment_id,
-    Company company_id,
-    bool is_announcement,
-    String announcement_type,
-    List<AnnouncementEmployee> employee_ids,
-    List<AnnouncementDepartment> department_ids,
-    List<AnnouncementPosition> position_ids,
-    String announcement,
-    String date_start,
-    String date_end,
+    int? id,
+    String? name,
+    String? announcement_reason,
+    String? state,
+    String? requested_date,
+    required List<Attachment> attachment_id,
+    required Company company_id,
+    bool? is_announcement,
+    String? announcement_type,
+    required List<AnnouncementEmployee> employee_ids,
+    required List<AnnouncementDepartment> department_ids,
+    required List<AnnouncementPosition> position_ids,
+    String? announcement,
+    String? date_start,
+    String? date_end,
   }) {
     return Announcement(
       id: id ?? this.id,
@@ -96,7 +96,7 @@ class Announcement {
   }
 
   factory Announcement.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return Announcement(
       id: map['id'],
@@ -118,6 +118,8 @@ class Announcement {
       announcement: map['announcement'],
       date_start: map['date_start'],
       date_end: map['date_end'],
+      position_ids: List<AnnouncementPosition>.from(
+          map['position_ids']?.map((x) => AnnouncementPosition.fromMap(x))),
     );
   }
 

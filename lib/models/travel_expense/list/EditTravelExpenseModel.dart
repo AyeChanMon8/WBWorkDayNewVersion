@@ -7,11 +7,11 @@ import 'package:winbrother_hr_app/models/travel_expense/create/travel_line_model
 class EditTravelExpenseModel {
   List<TravelLineModel> travel_line;
   EditTravelExpenseModel({
-    this.travel_line,
+    required this.travel_line,
   });
 
   EditTravelExpenseModel copyWith({
-    List<TravelLineModel> travel_line,
+    List<TravelLineModel>? travel_line,
   }) {
     return EditTravelExpenseModel(
       travel_line: travel_line ?? this.travel_line,
@@ -25,7 +25,7 @@ class EditTravelExpenseModel {
   }
 
   factory EditTravelExpenseModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return EditTravelExpenseModel(
       travel_line: List<TravelLineModel>.from(
