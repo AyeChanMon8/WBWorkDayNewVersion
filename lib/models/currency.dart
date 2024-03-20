@@ -6,13 +6,13 @@ class Currency {
   final int id;
   final String name;
   Currency({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   Currency copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return Currency(
       id: id ?? this.id,
@@ -28,7 +28,7 @@ class Currency {
   }
 
   factory Currency.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return Currency(
       id: map['id'],

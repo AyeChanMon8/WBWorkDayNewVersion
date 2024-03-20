@@ -4,13 +4,13 @@ class CategoryEmployeeID {
   int id;
   String name;
   CategoryEmployeeID({
-    this.id,
-    this.name,
+    this.id = 0,
+    this.name = '',
   });
 
   CategoryEmployeeID copyWith({
-    int id,
-    String name,
+    int? id,
+    String? name,
   }) {
     return CategoryEmployeeID(
       id: id ?? this.id,
@@ -26,7 +26,7 @@ class CategoryEmployeeID {
   }
 
   factory CategoryEmployeeID.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return CategoryEmployeeID(
       id: map['id'],

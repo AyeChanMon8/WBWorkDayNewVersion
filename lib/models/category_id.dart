@@ -5,15 +5,15 @@ class CategoryID {
   String name;
   String code;
   CategoryID({
-    this.id,
-    this.name,
-    this.code,
+    this.id = 0,
+    this.name = '',
+    this.code = '',
   });
 
   CategoryID copyWith({
-    int id,
-    String name,
-    String code,
+    int? id,
+    String? name,
+    String? code,
   }) {
     return CategoryID(
       id: id ?? this.id,
@@ -31,7 +31,7 @@ class CategoryID {
   }
 
   factory CategoryID.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
+    // if (map == null) return null;
 
     return CategoryID(
       id: map['id'],
